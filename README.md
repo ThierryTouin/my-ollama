@@ -2,26 +2,29 @@
 Run ollama with docker compose
 
 
-## Clone repository and Run
+## Installation
+
+### Clone repository and Run
 ```
 start.sh
 ```
 
-## Install model (only in first run)
+### Install model 
 
-### Enter in docker container
+#### Enter in docker container
 ```
 shell.sh
 ```
 
-### Run in container
+#### Run in container
 ```
 ollama pull llama3
 ollama pull all-minilm
+exit
 ```
 
 
-## If you want use Nvidia GPU with Ubuntu in 2 steps
+### If you want use Nvidia GPU with Ubuntu in 2 steps
 
 1. Uncomment in docker compose :
 
@@ -45,6 +48,16 @@ ollama pull all-minilm
  sudo systemctl restart docker
 ```
 
+
+## Run & Use
+
+```
+start.sh
+```
+
+UI : http://localhost:3000
+
+API : http://localhost:11434
 
 
 ## Inspired by 
