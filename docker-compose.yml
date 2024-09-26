@@ -4,6 +4,12 @@ services:
     hostname: ollama
     ports:
       - "11434:11434"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]  # Check if Ollama is responding
+      interval: 10s                    # Run the health check every 10 seconds
+      timeout: 30s                     # Timeout for the health check is 30 seconds
+      retries: 5                       # Retry 5 times before marking it as unhealthy
+      start_period: 10s                # Wait 10 seconds before starting health checks
     volumes:
       - ./models:/root/.ollama/models
     networks:
@@ -15,6 +21,19 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+
+  # ollama-models-pull:
+  #   container_name: ollama-models-pull
+  #   image: curlimages/curl:latest       # Use curl to send HTTP requests
+  #   depends_on:
+  #     ollama:
+  #       condition: service_healthy      # Wait for Ollama to be healthy
+  #   command: >
+  #     curl -X POST host.docker.internal:11434/api/pull -d '{"name":"mistral:latest"}'
+  #     curl -X POST host.docker.internal:11434/api/pull -d '{"name":"nomic-embed-text"}'
+  #   networks:
+  #     - genai-network
+
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     ports:
@@ -25,6 +44,11 @@ services:
       - ./backend/data:/app/backend/data
     networks:
       - genai-network
+    # depends_on:
+    #   ollama-models-pull:
+    #     condition: service_completed_successfully  # Wait for model pull to complete
+
+
 networks:
   genai-network:
     driver: bridge

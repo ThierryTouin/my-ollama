@@ -20,6 +20,7 @@ shell.sh
 ```
 ollama pull llama3
 ollama pull all-minilm
+ollama pull llama3.2:3b
 exit
 ```
 
