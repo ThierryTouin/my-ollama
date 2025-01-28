@@ -1,6 +1,9 @@
 services:
   ollama:
-    image: ollama/ollama:latest
+    build: 
+      context: .
+      dockerfile: ollama.Dockerfile    
+    container_name: ollama
     hostname: ollama
     ports:
       - "11434:11434"
@@ -22,20 +25,15 @@ services:
               count: all
               capabilities: [gpu]
 
-  # ollama-models-pull:
-  #   container_name: ollama-models-pull
-  #   image: curlimages/curl:latest       # Use curl to send HTTP requests
-  #   depends_on:
-  #     ollama:
-  #       condition: service_healthy      # Wait for Ollama to be healthy
-  #   command: >
-  #     curl -X POST host.docker.internal:11434/api/pull -d '{"name":"mistral:latest"}'
-  #     curl -X POST host.docker.internal:11434/api/pull -d '{"name":"nomic-embed-text"}'
-  #   networks:
-  #     - genai-network
+
 
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+    build: 
+      context: .
+      dockerfile: open-webui.Dockerfile    
+    container_name: open-webui
+    hostname: open-webui
+
     ports:
       - "3000:8080"
     environment:
