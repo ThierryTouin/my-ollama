@@ -16,7 +16,8 @@ services:
     volumes:
       - ./models:/root/.ollama/models
     networks:
-      - genai-network
+    #  - genai-network
+      - devnet
     deploy:
       resources:
         reservations:
@@ -41,16 +42,20 @@ services:
     volumes:
       - ./backend/data:/app/backend/data
     networks:
-      - genai-network
+    #  - genai-network
+      - devnet
     # depends_on:
     #   ollama-models-pull:
     #     condition: service_completed_successfully  # Wait for model pull to complete
 
 
 networks:
-  genai-network:
-    driver: bridge
-    name: genai-network
+  # genai-network:
+  #   driver: bridge
+  #   name: genai-network
+  devnet:
+    external: true
+    name: devnet
 
 
     
