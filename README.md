@@ -23,6 +23,7 @@ ollama pull all-minilm
 ollama pull llama3.2:3b
 ollama pull deepseek-r1:7b
 ollama pull qwen3
+ollama pull cas/llama-3.2-1b-instruct:latest
 exit
 ```
 
@@ -43,13 +44,7 @@ exit
 
 2. Install `nvidia-container-toolkit`
 
-```
- curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
- sudo apt-get update
- sudo apt-get install -y nvidia-container-toolkit
- sudo nvidia-ctk runtime configure --runtime=docker
- sudo systemctl restart docker
-```
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 
 
 ## Run & Use
