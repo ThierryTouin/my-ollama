@@ -7,6 +7,9 @@ services:
     hostname: ollama
     ports:
       - "11434:11434"
+    environment:
+      - OLLAMA_DEBUG=1  # Ajout de cette ligne
+      #- OLLAMA_GPU_LAYERS=10  # Limite l'offload à 10 couches sur le GPU
     healthcheck:
       test: ["CMD", "ollama", "list"]  # Check if Ollama is responding
       interval: 10s                    # Run the health check every 10 seconds
