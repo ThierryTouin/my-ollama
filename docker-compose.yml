@@ -9,7 +9,7 @@ services:
       - "11434:11434"
     environment:
       - OLLAMA_DEBUG=1  # Ajout de cette ligne
-      #- OLLAMA_GPU_LAYERS=10  # Limite l'offload à 10 couches sur le GPU
+      - OLLAMA_GPU_LAYERS=1  # Limite l'offload à XX couches sur le GPU
     healthcheck:
       test: ["CMD", "ollama", "list"]  # Check if Ollama is responding
       interval: 10s                    # Run the health check every 10 seconds
@@ -21,13 +21,20 @@ services:
     networks:
     #  - genai-network
       - devnet
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    #     limits:
+    #       memory: 12G  # Augmente selon ta RAM disponible
+
     deploy:
       resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+        limits:
+          memory: 12G
 
 
 
