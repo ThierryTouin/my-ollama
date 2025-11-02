@@ -24,10 +24,14 @@ ollama pull llama3.2:3b
 ollama pull deepseek-r1:7b
 ollama pull qwen3
 ollama pull cas/llama-3.2-1b-instruct:latest
-ollama pull gemma3n  # Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones. 
-ollama pull gemma:2b
+```
 
-exit
+# Bien pour la domaotique et petite machine ?
+```
+ollama pull gemma3n  # Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones. 
+ollama pull gemma:2b 
+ollama run phi3:mini
+ollama run phi3
 ```
 
 
