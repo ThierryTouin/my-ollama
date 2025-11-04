@@ -39,9 +39,6 @@ ollama run phi3
 
 | Modèle              | Taille / paramètres  | Ressources approx.                               | Commande `pull`              |
 | ------------------- | -------------------- | ------------------------------------------------ | ---------------------------- |
-| SmolLM2 : **135 M** | ultra-léger          | très peu de ressources                           | `ollama pull smollm2:135m`   |
-| SmolLM2 : **360 M** | toujours ultra-léger | très peu                                         | `ollama pull smollm2:360m`   |
-| SmolLM2 : **1.7B**  | encore modéré        | possiblement sur CPU/mini-GPU                    | `ollama pull smollm2:1.7b`   |
 | Mistral (7B)        | bon compromis        | ~4 GB+ de RAM GPU selon version                  | `ollama pull mistral:7b`     |
 | Llama 2 (7B)        | bon compromis        | ~3-5 GB RAM/VRAM selon quantisation              | `ollama pull llama2:7b-chat` |
 | Gemma 3 (4B)        | modéré               | ~3.3 GB pour 4B version selon doc. ([GitHub][1]) | `ollama pull gemma3:4b`      |
