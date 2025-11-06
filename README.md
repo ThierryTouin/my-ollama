@@ -23,27 +23,14 @@ ollama pull all-minilm
 ollama pull llama3.2:3b
 ollama pull deepseek-r1:7b
 ollama pull qwen3
-ollama pull cas/llama-3.2-1b-instruct:latest
 ```
 
 # Bien pour la domaotique et petite machine ?
 ```
-ollama pull gemma3n  # Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones. 
-ollama pull gemma:2b 
-ollama run phi3:mini
-ollama run phi3
+ollama pull cas/eurollm-1.7b-instruct-q8
+ollama run phi4-mini:3.8b
 ```
 
-
-# A tester 
-
-| Modèle              | Taille / paramètres  | Ressources approx.                               | Commande `pull`              |
-| ------------------- | -------------------- | ------------------------------------------------ | ---------------------------- |
-| Mistral (7B)        | bon compromis        | ~4 GB+ de RAM GPU selon version                  | `ollama pull mistral:7b`     |
-| Llama 2 (7B)        | bon compromis        | ~3-5 GB RAM/VRAM selon quantisation              | `ollama pull llama2:7b-chat` |
-| Gemma 3 (4B)        | modéré               | ~3.3 GB pour 4B version selon doc. ([GitHub][1]) | `ollama pull gemma3:4b`      |
-
-[1]: https://github.com/ollama/ollama?utm_source=chatgpt.com "ollama/ollama: Get up and running with OpenAI gpt-oss ... - GitHub"
 
 
 
