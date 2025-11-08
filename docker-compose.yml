@@ -36,6 +36,12 @@ services:
         limits:
           memory: 12G
 
+          # Options pour docker-compose local (non-swarm) :
+          # - 'cpus' permet de limiter/autoriser l'usage CPU (ex: 3.0 = ~3 cores)
+          # - 'cpuset' permet de fixer quels cores utiliser (optionnel, requiert que ces cores existent)
+          cpus: 3.0
+          # cpuset: "0-3"
+
 
 
   open-webui:
